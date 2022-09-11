@@ -13,7 +13,7 @@ app.autodiscover_tasks(settings.INSTALLED_APPS)
 
 app.conf.beat_schedule = {
     'send_email_every_minute': {
-        # 'task': 'letters.tasks.send_letter',
+        'task': 'letters.tasks.send_letter',
         'schedule': crontab(),
     },
     'get_log_every_five_minute': {
