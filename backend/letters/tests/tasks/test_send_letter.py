@@ -12,4 +12,3 @@ def test_send_letter(subscribers_factory, mailoutbox, settings):
     mail = mailoutbox[0]
     assert mail.subject == 'Subject'
     assert mail.to == [settings.EMAIL_TO]
-
