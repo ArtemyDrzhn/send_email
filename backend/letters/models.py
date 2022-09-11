@@ -17,6 +17,6 @@ class Subscribers(models.Model):
 
 class TrackedEmail(models.Model):
     email = models.EmailField()
-    message_id = models.CharField(max_length=36)
+    message_id = models.CharField(max_length=50)
     status = models.CharField(max_length=9)
     timestamp = models.DateTimeField()

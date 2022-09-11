@@ -1,6 +1,8 @@
 # coding=utf-8
 from __future__ import unicode_literals
 
+import json
+
 import requests
 from django.conf import settings
 
@@ -21,5 +23,6 @@ def get_letter_data():
 
 
 def get_data_log():
-    return requests.get('https://api.mailgun.net/v3/%s/events' % settings.MAILGUN_SERVER_NAME,
+    data = requests.get('https://api.mailgun.net/v3/%s/events' % settings.MAILGUN_SERVER_NAME,
                         auth=('api', settings.MAILGUN_ACCESS_KEY))
+    return json.loads(data.content)

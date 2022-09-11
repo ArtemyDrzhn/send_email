@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 import datetime
 import json
+import pdb
 
 import pytz
 from django.conf import settings
@@ -28,8 +29,8 @@ def send_letter():
 @app.task
 def get_logs():
     data = get_data_log()
-    items = json.loads(data.content)['items']
-    for item in items:
+    for item in data['items']:
+        pdb.set_trace()
         TrackedEmail.objects.update_or_create(email=item['recipient'],
                                               message_id=item['message']['headers']['message-id'],
                                               status=item['event'],
